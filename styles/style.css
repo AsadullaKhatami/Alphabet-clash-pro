@@ -7,11 +7,15 @@
 }
 
 .anton-regular {
-  font-family: "Anton", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+    font-family: "Anton", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
-.bord-color{
-    background: rgba(255, 255, 255, 0.7);
+.score {
+    box-sizing: border-box;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    background: linear-gradient(136.67deg, rgba(255, 255, 255, 0.56), rgba(151.9375, 150.67135620117188, 150.67135620117188, 0) 100%);
+    color: white;
 }

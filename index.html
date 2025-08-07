@@ -35,13 +35,19 @@
         </section>
 
         <!-- playground screen -->
-        <section>
-            <div>
+        <section class="hidden">
+            <div class="flex flex-col items-center justify-center gap-20 min-h-screen">
                 <!-- display -->
-                <div class="flex justify-center items-center">
+                <div>
                     <div
-                        class="w-5xl h-[256px]  bg-[#FFFFFFB3] border-[20px] border-solid border-[#010313CC] rounded-2xl flex justify-center items-center text-8xl anton-regular">
-                        Y
+                        class="w-5xl h-[300px]  bg-[#FFFFFFB3] border-[20px] border-solid border-[#010313CC] rounded-2xl ">
+                        <div class="flex flex-col items-center">
+                            <p class="bg-[#010313] text-white px-5 py-2 rounded-b-xl mb-4">Don't watch keyboard while
+                                playing...</p>
+                        </div>
+                        <div class="flex justify-center items-center text-8xl anton-regular">
+                            <span>Y</span>
+                        </div>
                     </div>
                 </div>
                 <!-- Keyboard -->
@@ -81,15 +87,30 @@
                     </div>
                 </div>
                 <!-- score and life-->
-
+                <div class="w-3/4 flex justify-between">
+                    <button class="btn bg-[#894189] text-white text-xl rounded-full">
+                        Life
+                        <img src="images/Group 23.svg" alt="">
+                        <span>1</span>
+                    </button>
+                    <button class="btn bg-[#894189] text-white text-xl rounded-full">
+                        Score
+                        <img src="images/monetization_on.svg" alt="" srcset="">
+                        <span>1</span>
+                    </button>
+                </div>
             </div>
         </section>
         <!-- playground end screen -->
 
 
         <!-- score section  -->
-        <section>
-
+        <section class="flex flex-col items-center justify-center min-h-screen">
+            <div class="score p-5">
+                <h1>Score : 14</h1>
+                <button>Play Again</button>
+                <p>practices make perfect</p>
+            </div>
         </section>
     </main>
 </body>
