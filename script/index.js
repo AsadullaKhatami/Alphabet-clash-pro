@@ -12,7 +12,6 @@ document.addEventListener('keyup', (evt) => {
     // key track what heppend 
 
     if (currentLetter === letter) {
-        console.log("correct letter click");
 
         // CHANGES THE COLOR button from kye board
         document.getElementById(letter).classList.remove('bg-orange-400', 'text-white');
@@ -24,7 +23,6 @@ document.addEventListener('keyup', (evt) => {
         document.getElementById('score-value').innerText = newScore;
 
     } else {
-        console.log("wrong letter.", currentLetter);
 
         // CHANGES THE COLOR button from kye board
         document.getElementById(letter).classList.remove('bg-orange-400', 'text-white');
