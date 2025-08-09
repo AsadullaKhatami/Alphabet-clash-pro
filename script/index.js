@@ -1,5 +1,7 @@
 const displayLetter = document.getElementById('display-letter');
 let letter = '';
+let newScore = 0;
+let newLife = 3;
 
 document.addEventListener('keyup', (evt) => {
 
@@ -13,33 +15,60 @@ document.addEventListener('keyup', (evt) => {
         // updating score
         let score = updateValue('score-value');
 
-        let newScore = score + 1;
+        newScore = score + 1;
         document.getElementById('score-value').innerText = newScore;
 
     } else {
         console.log("wrong letter.");
+        
         // CHANGES THE COLOR button from kye board
         document.getElementById(letter).classList.remove('bg-orange-400', 'text-white');
 
         // updating life
         let life = updateValue('life-value');
 
-        let newLife = life - 1;
+        newLife = life - 1;
         document.getElementById('life-value').innerText = newLife;
 
         // game over
-        if (newLife == 0) {
-            hiddenElement('playground');
-            showElement('score-board');
+        if (newLife === 0) {
+            gameOver();
+            return 0;
         }
-
+        
     }
+
     play();
 });
 
-function gameOver() {
+function playAgain(){
+    // reset score and life
+    newLife = 3;
+    newScore = 0;
+    document.getElementById('score-value').innerText = newScore;
+    document.getElementById('life-value').innerText = newLife;
 
-    console.log('game over')
+    showElement('playground');
+    hiddenElement('play-now');
+    hiddenElement('score-board');
+    letter = randomAlphabet();
+    displayLetter.innerText = letter;
+
+}
+
+function gameOver() {
+    hiddenElement('playground');
+    showElement('score-board');
+
+    // show score on score board
+    const showOnScoreBoard = document.getElementById('show-score-on-scoreboard');
+    showOnScoreBoard.innerText = newScore;
+
+
+    console.log('game over');
+    console.log(newScore);
+
+    return 0;
 }
 
 function updateValue(elementId) {
@@ -52,6 +81,7 @@ function updateValue(elementId) {
 function play() {
     showElement('playground');
     hiddenElement('play-now');
+    hiddenElement('score-board');
     letter = randomAlphabet();
     displayLetter.innerText = letter;
 }

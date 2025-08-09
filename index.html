@@ -105,10 +105,10 @@
 
 
         <!-- score section  -->
-        <section id="score-board" class="flex flex-col items-center justify-center min-h-screen     ">
+        <section id="score-board" class="flex flex-col items-center justify-center min-h-screen hidden">
             <div class="score p-5 flex flex-col items-center justify-center gap-5">
-                <h1 class="text-5xl">Score : 14</h1>
-                <button class="bg-white text-primary font-semibold px-5 py-2 rounded-lg cursor-pointer">Play Again</button>
+                <h1 class="text-5xl">Score : <span id="show-score-on-scoreboard">0</span></h1>
+                <button onclick="playAgain()" class="bg-white text-primary font-semibold px-5 py-2 rounded-lg cursor-pointer">Play Again</button>
                 <p>practices make perfect</p>
             </div>
         </section>
