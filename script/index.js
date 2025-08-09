@@ -1,11 +1,16 @@
 const displayLetter = document.getElementById('display-letter');
+const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+const letterArr = alphabet.split('');
 let letter = '';
 let newScore = 0;
 let newLife = 3;
 
 document.addEventListener('keyup', (evt) => {
 
-    const currentLetter = evt.key;
+    const currentLetter = evt.key.toLowerCase();
+
+    // key track what heppend 
+
     if (currentLetter === letter) {
         console.log("correct letter click");
 
@@ -19,8 +24,8 @@ document.addEventListener('keyup', (evt) => {
         document.getElementById('score-value').innerText = newScore;
 
     } else {
-        console.log("wrong letter.");
-        
+        console.log("wrong letter.", currentLetter);
+
         // CHANGES THE COLOR button from kye board
         document.getElementById(letter).classList.remove('bg-orange-400', 'text-white');
 
@@ -31,17 +36,24 @@ document.addEventListener('keyup', (evt) => {
         document.getElementById('life-value').innerText = newLife;
 
         // game over
-        if (newLife === 0) {
+        if (newLife <= 0) {
             gameOver();
             return 0;
+        }else if(currentLetter === 'escape'){
+            gameOver();
+            return 0;
+        }else if(currentLetter === 'tab' || currentLetter === 'capslock' || currentLetter === '' || currentLetter === 'alt' || currentLetter === 'shift' || currentLetter === 'backspace' || (currentLetter >= 0 && currentLetter <= 9)) {
+            alert('your life is gone. Please enter escape for exit from game');
         }
+
         
+
     }
 
     play();
 });
 
-function playAgain(){
+function playAgain() {
     // reset score and life
     newLife = 3;
     newScore = 0;
@@ -97,8 +109,6 @@ function showElement(showId) {
 }
 
 function randomAlphabet() {
-    const letter = 'abcdefghijklmnopqrstuvwxyz';
-    const letterArr = letter.split('');
 
     let randNumber = Math.round(Math.random() * 25);
     let alphabet = letterArr[randNumber];
